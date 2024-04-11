@@ -15,22 +15,27 @@ Before running the application, ensure you have the following installed:
 
 ```bash
 git clone https://github.com/tettehnarh/django_crm.git
+```
+
+2. Navigate into the new directory
+
+```bash
 cd django_crm
 ```
 
-2. Install dependencies:
+3. Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Apply migrations:
+4. Apply migrations:
 
 ```bash
 python manage.py migrate
 ```
 
-4. Run the development server:
+5. Run the development server:
 
 ```bash
 python manage.py runserver
