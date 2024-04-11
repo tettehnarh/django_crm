@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
 <div class="card">
+    <!-- Card header with customer's name -->
     <div class="card-header">
         <strong>
             {{ customer_record.first_name }} {{ customer_record.last_name }}
         </strong>
     </div>
+    <!-- Card body with customer's details -->
     <div class="card-body">
         <p class="card-text">
             <strong>Email:</strong> {{ customer_record.email }}
@@ -34,10 +35,10 @@
 </div>
 
 <br><br>
+<!-- Back button to return to the home page -->
 <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+<!-- Delete button to delete the current record -->
 <a href="{% url 'delete-record' customer_record.id %}" class="btn btn-danger">Delete</a>
+<!-- Update button to update the current record -->
 <a href="{% url 'update-record' customer_record.id %}" class="btn btn-danger">Update</a>
-
-
-
 {% endblock %}

@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+    <!-- Check if user is authenticated -->
     {% if user.is_authenticated %}
+        <!-- Display records if user is authenticated -->
         <h1>Records</h1>
         <table class="table table-striped table-hover table-bordered">
             <thead class="table-dark">
@@ -20,34 +21,30 @@
             </thead>
             <tbody>
                 {% if records %}
-
                     {% for record in records %}
-
-                    <tr>
-                        <td>{{ record.first_name }} {{ record.last_name }}</td>
-                        <td>{{ record.email }}</td>
-                        <td>{{ record.phone }}</td>
-                        <td>{{ record.address }}</td>
-                        <td>{{ record.city }}</td>
-                        <td>{{ record.state }}</td>
-                        <td>{{ record.zipcode }}</td>
-                        <td>{{ record.created_at }}</td>
-                        <td><a href="{% url 'record' record.id %}">{{ record.id }}</a></td>
-                    </tr>
-
+                        <tr>
+                            <!-- Display record details -->
+                            <td>{{ record.first_name }} {{ record.last_name }}</td>
+                            <td>{{ record.email }}</td>
+                            <td>{{ record.phone }}</td>
+                            <td>{{ record.address }}</td>
+                            <td>{{ record.city }}</td>
+                            <td>{{ record.state }}</td>
+                            <td>{{ record.zipcode }}</td>
+                            <td>{{ record.created_at }}</td>
+                            <td><a href="{% url 'record' record.id %}">{{ record.id }}</a></td>
+                        </tr>
                     {% endfor %}
-
                 {% endif %}
             </tbody>
         </table>
-
     {% else %}
+        <!-- Display login form if user is not authenticated -->
         <div class="col-md-6 offset-md-3">
             <h1>Login</h1>
             <br>
             <form action="{% url 'home' %}" method="POST">
                 {% csrf_token %}
-
                 <div class="mb-3">
                     <input type="text" class="form-control" name="username" placeholder="User Name" required>
                 </div>
@@ -60,6 +57,4 @@
             </form>
         </div>
     {% endif %}
-
-
 {% endblock %}
