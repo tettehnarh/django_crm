@@ -60,18 +60,6 @@ def register_user(request):
         form = SignUpForm()
     return render(request, 'register.html', {'form': form})
 
-# Customer record view function
-
-
-def customer_record(request, pk):
-    if request.user.is_authenticated:
-        # If the user is authenticated, retrieve the specified record
-        customer_record = Record.objects.get(id=pk)
-        return render(request, 'record.html', {'customer_record': customer_record})
-    else:
-        # If the user is not authenticated, redirect to the homepage
-        messages.error(request, 'You must be logged in to view this page')
-        return redirect('home')
 
 # Delete record view function
 

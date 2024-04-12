@@ -11,9 +11,6 @@ urlpatterns = [
     # User Registration URL
     path('register/', views.register_user, name='register'),
 
-    # Customer Record URL with Record ID
-    path('record/<int:pk>', views.customer_record, name='record'),
-
     # Delete Record URL with Record ID
     path('delete_record/<int:pk>', views.delete_record, name='delete-record'),
 
